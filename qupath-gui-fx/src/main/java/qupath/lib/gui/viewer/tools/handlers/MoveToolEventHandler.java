@@ -173,8 +173,8 @@ public class MoveToolEventHandler extends AbstractPathToolEventHandler<MouseEven
 				double x = p.getX();
 				double y = p.getY();
 				if (PathPrefs.usePixelSnappingProperty().get() && editor.getROI() != null && editor.getROI().isArea()) {
-					x = (int)x;
-					y = (int)y;
+					x = (int)(x+0.5);
+					y = (int)(y+0.5);
 				}
 				ROI updatedROI = editor.setActiveHandlePosition(x, y, viewer.getDownsampleFactor()/2.0, e.isShiftDown());
 				if (updatedROI == null)

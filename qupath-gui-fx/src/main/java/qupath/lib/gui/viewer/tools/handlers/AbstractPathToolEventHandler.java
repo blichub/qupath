@@ -96,7 +96,7 @@ abstract class AbstractPathToolEventHandler<T extends InputEvent> implements Eve
 		var viewer = getViewer();
 		var p = viewer.componentPointToImagePoint(e.getX(), e.getY(), null, constrainToBounds);
 		if (snapToPixel)
-			p.setLocation(Math.floor(p.getX()), Math.floor(p.getY()));
+			p.setLocation(Math.round(p.getX()), Math.round(p.getY()));
 		return p;
 	}
 
