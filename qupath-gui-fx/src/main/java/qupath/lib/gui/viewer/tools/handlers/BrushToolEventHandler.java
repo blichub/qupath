@@ -331,10 +331,7 @@ public class BrushToolEventHandler extends AbstractPathROIToolEventHandler<Input
 		if (p.getX() < 0 || p.getY() < 0 || p.getX() >= getViewer().getServerWidth() || p.getY() >= getViewer().getServerHeight())
 			return currentObject;
 
-		// If we use pixel snapping, we get integer coordinates -
-		// we actually want the *center*, so need to offset by 0.5
-		if (pixelSnapping)
-			p.setLocation(p.getX() + 0.5, p.getY() + 0.5);
+		p.setLocation(p.getX(), p.getY());
 
 		var viewer = getViewer();
 		ImagePlane plane = shapeROI == null ? ImagePlane.getPlane(viewer.getZPosition(), viewer.getTPosition()) : shapeROI.getImagePlane();
